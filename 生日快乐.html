@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐！🎂</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B8B',
+                        secondary: '#FFD166',
+                        accent: '#06D6A0',
+                        dark: '#073B4C',
+                        light: '#F7F9FC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .animate-float-delay-1 {
+                animation: float 6s ease-in-out 1s infinite;
+            }
+            .animate-float-delay-2 {
+                animation: float 6s ease-in-out 2s infinite;
+            }
+            .animate-float-delay-3 {
+                animation: float 6s ease-in-out 3s infinite;
+            }
+            .animate-float-delay-4 {
+                animation: float 6s ease-in-out 4s infinite;
+            }
+            .animate-float-up {
+                animation: floatUp 8s linear forwards;
+            }
+            .animate-bounce-light {
+                animation: bounceLight 2s infinite;
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+        }
+
+        @keyframes bounceLight {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .haoxuan{
+          float: right
+        }
+        .li_xin{
+          float: left;
+        }
+        .yuan_wang{
+          width: 200px;
+          height: 100px;
+           border-radius: 20px 20px 20px 20px;
+          background: rgb(248, 195, 203);
+           animation: float 3s ease-in-out 0s infinite; 
+           animation: float 3s ease-in-out 0.5s infinite; 
+           animation: float 3s ease-in-out 1s infinite; 
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-light to-blue-100 min-h-screen overflow-hidden">
+    <!-- 气球容器 -->
+    <div id="balloonContainer" class="fixed inset-0 pointer-events-none z-10"></div>
+
+    <!-- 页面内容 -->
+    <div class="relative min-h-screen flex flex-col items-center justify-center px-4 py-8 z-20">
+        <!-- 标题 -->
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-primary text-shadow-lg mb-6 text-center transition-all duration-500 transform hover:scale-105">
+            生日快乐！🎂<br>
+        </h1>
+        
+        <!-- 蛋糕 -->
+        <div class="cake-container mb-12 animate-float">
+            <div class="cake w-48 h-48 md:w-64 md:h-64 relative">
+                <!-- 蛋糕底座 -->
+                <div class="absolute bottom-0 w-full h-1/3 bg-red-200 rounded-t-3xl shadow-lg">
+                    <div class="absolute inset-0 bg-[url('https://picsum.photos/id/292/200/100')] bg-cover opacity-10 rounded-t-3xl"></div>
+                </div>
+                
+                <!-- 蛋糕中层 -->
+                <div class="absolute bottom-1/3 w-4/5 left-1/2 transform -translate-x-1/2 h-1/3 bg-red-300 rounded-t-3xl shadow-lg">
+                    <div class="absolute inset-0 bg-[url('https://picsum.photos/id/292/200/100')] bg-cover opacity-10 rounded-t-3xl"></div>
+                </div>
+                
+                <!-- 蛋糕顶层 -->
+                <div class="absolute bottom-2/3 w-3/5 left-1/2 transform -translate-x-1/2 h-1/3 bg-red-400 rounded-t-3xl shadow-lg">
+                    <div class="absolute inset-0 bg-[url('https://picsum.photos/id/292/200/100')] bg-cover opacity-10 rounded-t-3xl"></div>
+                </div>
+                
+                <!-- 蜡烛 -->
+                <div class="absolute top-0 left-1/4 transform -translate-y-full w-4 h-16 bg-primary rounded-sm">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-secondary rounded-full animate-pulse"></div>
+                    <div class="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-4 bg-orange-500 rounded-sm"></div>
+                </div>
+                <div class="absolute top-0 left-1/2 transform -translate-y-full -translate-x-1/2 w-4 h-20 bg-secondary rounded-sm">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full animate-pulse"></div>
+                    <div class="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-4 bg-orange-500 rounded-sm"></div>
+                </div>
+                <div class="absolute top-0 right-1/4 transform -translate-y-full w-4 h-16 bg-accent rounded-sm">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full animate-pulse"></div>
+                    <div class="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-4 bg-orange-500 rounded-sm"></div>
+                </div>
+                
+                
+                <div class="absolute bottom-2/3 w-3/5 left-1/2 transform -translate-x-1/2 h-8 bg-secondary rounded-t-full -z-10"></div>
+            </div>
+        </div>
+        
+        
+        <div class="message-container max-w-2xl bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl mb-8 text-center transform transition-all duration-500 hover:shadow-2xl">
+            <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-dark mb-4 leading-relaxed">
+              <div class="li_xin">
+                  亲爱的 李心：
+              </div><br>
+                
+                时光轻淌，又逢你的生辰。<br>在岁岁年年的流转里，你似那春日微风中轻颤的花瓣，带着独有的温柔与烂漫。
+                与你相伴的时光，如翻阅一本静谧而美好的诗集，每一页都藏着不经意的心动。<br>
+                你眸光闪烁，似有星海藏于其中，不经意间洒落，泛起层层涟漪。<br>
+                愿你新的一岁，能如春日枝头的繁花，肆意舒展，灿烂盛放。每一缕阳光都亲吻你的眉眼，每一阵微风都传递温柔的讯息。<br>
+                而我，愿如那沉默的星辰，在你目力可及或不可及之处，默默守护着你的喜乐。<br>
+                生日快乐，岁岁常欢愉。<br>
+                <div class="haoxuan">
+                [浩轩]
+                </div>
+                <br>
+                <div class="haoxuan">[2025年5月18日]</div>
+                <br>
+              
+            </p>
+            <p class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-primary mt-4">
+                生日快乐！🎉
+            </p>
+        </div>
+        
+        
+        <button class="yuan_wang">
+          <input type="text">
+          写下愿望
+        </button>
+    </div>
+
+   
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primary/20 to-transparent"></div>
+
+    <script>
+        
+        const balloonColors = [
+            'bg-primary', 'bg-secondary', 'bg-accent', 
+            'bg-blue-500', 'bg-purple-500', 'bg-pink-500',
+            'bg-indigo-500', 'bg-teal-500', 'bg-amber-500'
+        ];
+        
+        
+        function createBalloon() {
+            const balloonContainer = document.getElementById('balloonContainer');
+            const balloon = document.createElement('div');
+            
+            // 随机选择颜色和位置
+            const color = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+            const leftPos = Math.random() * 100;
+            const delay = Math.random() * 5;
+            const size = Math.floor(Math.random() * 30) + 40; // 40px 到 70px
+            
+            // 设置气球样式
+            balloon.className = `absolute ${color} rounded-full shadow-lg animate-float-up`;
+            balloon.style.left = `${leftPos}vw`;
+            balloon.style.bottom = '-100px';
+            balloon.style.width = `${size}px`;
+            balloon.style.height = `${size}px`;
+            balloon.style.animationDelay = `${delay}s`;
+            
+            // 添加气球尾巴
+            const tail = document.createElement('div');
+            tail.className = 'absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-20 bg-gray-300 rounded-sm';
+            tail.style.bottom = `-${size / 2}px`;
+            balloon.appendChild(tail);
+            
+            // 添加到容器
+            balloonContainer.appendChild(balloon);
+            
+            // 动画结束后移除气球
+            setTimeout(() => {
+                balloon.remove();
+            }, 8000);
+        }
+        
+        // 页面加载时创建一些气球
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createBalloon, i * 300);
+        }
+        
+        // 点击按钮创建气球
+        document.getElementById('makeWish').addEventListener('click', () => {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createBalloon, i * 100);
+            }
+            
+            // 按钮动画
+            const btn = document.getElementById('makeWish');
+            btn.classList.add('scale-90');
+            setTimeout(() => {
+                btn.classList.remove('scale-90');
+            }, 200);
+        });
+        
+        // 鼠标点击创建气球
+        document.addEventListener('click', (e) => {
+            if (e.target.id !== 'makeWish') {
+                const rect = document.body.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const leftPos = (x / rect.width) * 100;
+                
+                const balloon = document.createElement('div');
+                const color = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+                const size = Math.floor(Math.random() * 30) + 40;
+                
+                balloon.className = `absolute ${color} rounded-full shadow-lg animate-float-up`;
+                balloon.style.left = `${leftPos}vw`;
+                balloon.style.bottom = '-100px';
+                balloon.style.width = `${size}px`;
+                balloon.style.height = `${size}px`;
+                
+                const tail = document.createElement('div');
+                tail.className = 'absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-20 bg-gray-300 rounded-sm';
+                tail.style.bottom = `-${size / 2}px`;
+                balloon.appendChild(tail);
+                
+                document.getElementById('balloonContainer').appendChild(balloon);
+                
+                setTimeout(() => {
+                    balloon.remove();
+                }, 8000);
+            }
+        });
+        
+        // 添加随机浮动装饰
+        function createDecoration() {
+            const decorations = ['🎂', '🎉', '🎊', '✨', '🎁', '🌟', '🥳', '🎈'];
+            const container = document.querySelector('body');
+            const decoration = document.createElement('div');
+            
+            const decor = decorations[Math.floor(Math.random() * decorations.length)];
+            const leftPos = Math.random() * 100;
+            const size = Math.floor(Math.random() * 30) + 20;
+            const delay = Math.random() * 10;
+            const duration = Math.floor(Math.random() * 10) + 10;
+            
+            decoration.className = 'fixed pointer-events-none text-shadow';
+            decoration.style.left = `${leftPos}vw`;
+            decoration.style.top = `${-size}px`;
+            decoration.style.fontSize = `${size}px`;
+            decoration.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+            decoration.textContent = decor;
+            
+            container.appendChild(decoration);
+            
+            // 移除已离开视口的装饰
+            setTimeout(() => {
+                decoration.remove();
+            }, (duration + delay) * 1000);
+        }
+        
+        // 定期创建装饰
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createDecoration, i * 500);
+        }
+        
+        setInterval(createDecoration, 2000);
+    </script>
+</body>
+</html>
+    
